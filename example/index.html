@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Audio Track Component</title>
+    
+        <link rel="shortcut icon" href="icon.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Scripts for audio-track component -->
+        <script src="../src/MediaSession.js"></script>
+        <script src="../src/Audio.js"></script>
+
+        <!-- Scripts for code style block -->
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css" rel="stylesheet"></link>
+    </head>
+
+    <body>
+
+         <!-- Main  -->
+        <div class="center">
+            <div id="audio">
+                <audio-track
+                    audio-title="Powerful Stylish Stomp Rock (Lets Go)"
+                    artist="MarkJuly"
+                    album="Powerful Stylish Stomp Rock (Lets Go)"
+                    artwork="./images/artwork.png"
+                    options
+                    source="./audio/music.mp3"
+                    link="https://pixabay.com/music/rock-powerful-stylish-stomp-rock-lets-go-114255/"
+                >
+                </audio-track>
+            </div>
+
+            <pre>
+                <code class="language-html">
+&lt;!-- Using audio-track component --&gt;
+
+&lt;script src="../src/MediaSession.js">&lt;/script&gt;
+&lt;script src="../src/Audio.js"&gt;&lt;/script&gt;
+
+&lt;audio-track
+    audio-title=&quot;Powerful Stylish Stomp Rock (Lets Go)&quot;
+    artist=&quot;MarkJuly&quot;
+    album=&quot;Powerful Stylish Stomp Rock (Lets Go)&quot;
+    artwork=&quot;./images/artwork.png&quot;
+    options
+    source=&quot;./audio/music.mp3&quot;
+    link=&quot;https://pixabay.com/music/rock-powerful-stylish-stomp-rock-lets-go-114255/&quot;
+&gt;
+&lt;/audio-track&gt;
+                </code>
+            </pre>
+        </div>
+
+        <!-- audio-track CONFIGS. -->
+        <div class="styles">
+            <span>CONFIGS.</span>
+
+            <label for="background">Background Color:</label>
+            <input type="color" id="background" value="#FFFFFF" />
+
+            <label for="background">Color:</label>
+            <input type="color" id="icons" value="#000000" />
+
+            <label for="show_options">Show Options</label>
+            <input type="checkbox" id="show_options" checked />
+
+            <a href="https://github.com/d-neto/audio-track" class="github">Source on Github</a>
+        </div>
+
+        <script>
+            document
+                .querySelector("#background")
+                .addEventListener("input", (evt) => {
+                    document
+                        .querySelector("audio-track")
+                        .setAttribute("background", evt.target.value);
+                });
+            document
+                .querySelector("#icons")
+                .addEventListener("input", (evt) => {
+                    document
+                        .querySelector("audio-track")
+                        .setAttribute("color", evt.target.value);
+                });
+            document
+                .querySelector("#show_options")
+                .addEventListener("change", (evt) => {
+                    document
+                        .querySelector("audio-track")
+                        .setAttribute("options", evt.target.checked);
+                });
+        </script>
+    </body>
+</html>
