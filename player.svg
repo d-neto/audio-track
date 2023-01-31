@@ -1,18 +1,196 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 800 400" width="800" height="400">
-	<foreignObject width="100%" height="200px">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 800 150" width="800" height="200">
+	<foreignObject width="100%" height="100%">
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<style>
                 .container{
-                    margin-left: 20px;
                     display:flex;
                     justify-content:center;
-                    width: 100%;
-                    background:#2572ff;
+                    align-items:center;
+                    background: #29F;
+                    padding: 2em;
+                    border-radius: 1em;
                 }
+                .player{
+                    --BACKGROUND-COLOR: whitesmoke;
+                    --ICON-COLOR: #000;
+                    --DISABLED-COLOR: #DD222299;
+                    --ENABLED-COLOR: #33FF9999;
+
+                    max-height: 72px !important;
+                    max-width: 265px !important;
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    align-content: center;
+                    justify-content: space-around;
+                    background-color: var(--BACKGROUND-COLOR);
+                    border-radius: 0.5em;
+                    transition: all .5s ease;
+                    border-bottom: 3px solid #0003;
+                }
+                .col-options{
+                    position: relative;
+
+                    padding: 1em 0 1em 0;
+                    margin-right: 0.5em;
+                }
+                .play-button{
+                    background: transparent;
+                    padding: 0;
+                    border: none;
+                    cursor: pointer;
+                    transition: all .5s ease;
+
+                    margin-left: 0.5em;
+                    border-radius: 50%;
+                }
+                .play-button:hover{
+                    opacity: 0.8;
+                }
+
+                .slider-container{
+                    min-height: 100%;
+                    transition: all .4s ease;
+                }
+
+                .scroll{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    height: 45px;
+                    overflow: hidden;
+                    transition: all .4s ease;
+                    padding: 0px 2px 0px 2px;
+                }
+
+                .section{
+                    padding: 0.1em;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 5px;
+                    min-height: 100%;
+                    transition: all .4s ease;
+                }
+
+                .slider-input{
+                    --SLIDER-THUMB-COLOR: #888888;
+
+                    appearance: none;
+                    border-radius: 1em;
+                    height: 0.5em;
+                    width: 100%;
+                    background:
+                    linear-gradient(to right, #777 50%, transparent 50%);
+                    cursor: pointer;
+                    transition: all .5s ease;
+                    box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+                    -webkit-box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+                    -moz-box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+                }
+
+                .slider-input::-webkit-slider-thumb{
+                    appearance: none;
+                    height: 1em;
+                    width: 1em;
+                    border-radius: 50%;
+                    background: var(--SLIDER-THUMB-COLOR);
+                    border: 1px solid white;
+                }
+                .slider-input::-moz-range-thumb{
+                    appearance: none;
+                    height: 1em;
+                    width: 1em;
+                    border-radius: 50%;
+                    background: var(--SLIDER-THUMB-COLOR);
+                    border: 1px solid white;
+                }
+
+                .time-range{
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    font-size: 0.7rem;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    background-color: var(--BACKGROUND-COLOR);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    filter: invert(1) grayscale(1);
+                    -webkit-filter: invert(1) grayscale(1);
+                }
+
+                .options{
+                    min-width: 20px;
+                    min-height: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    background-color: transparent;
+                    padding: 0.5em;
+                    cursor: pointer;
+                    transition: all .3s ease;
+                }
+                .options:hover{
+                    opacity: 0.7;
+                    background: rgba(0, 0, 0, 0.2);
+                    filter: brightness(0.7);
+                }
+                .dots{
+                    width: 0.3em;
+                    height: 0.3em;
+                    border-radius: 50%;
+                    margin-bottom: 0.1em;
+                    background: var(--BACKGROUND-COLOR);
+                    filter: invert(1) grayscale(1);
+                    -webkit-filter: invert(1) grayscale(1);
+                }
+
+
 			</style>
-			<div class="container">
-				<img src="./images/player.png" />
+            <div class="container">
+			<div class="player">
+				<button class="play-button">
+                    <svg 
+                        width="48px" 
+                        height="48px" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path opacity="0.4" d="M11.9707 22C17.4936 22 21.9707 17.5228 21.9707 12C21.9707 6.47715 17.4936 2 11.9707 2C6.44786 2 1.9707 6.47715 1.9707 12C1.9707 17.5228 6.44786 22 11.9707 22Z" fill="#303030"></path>
+                                <path d="M14.9694 10.2301L12.0694 8.56012C11.3494 8.14012 10.4794 8.14012 9.75938 8.56012C9.03938 8.98012 8.60938 9.72012 8.60938 10.5601V13.9101C8.60938 14.7401 9.03938 15.4901 9.75938 15.9101C10.1194 16.1201 10.5194 16.2201 10.9094 16.2201C11.3094 16.2201 11.6994 16.1201 12.0594 15.9101L14.9594 14.2401C15.6794 13.8201 16.1094 13.0801 16.1094 12.2401C16.1294 11.4001 15.6994 10.6501 14.9694 10.2301Z" fill="#303030"></path>
+                            </g>
+                    </svg>
+                </button>
+                <div class="col-controls">
+                    <div class="slider-container">
+                        <div class="scroll">
+                            <div class="section">
+                                <input class="slider-input" disabled="true" type="range" min="0" max="100" />
+                                <div class="time-range">
+                                    <span class="current-time">2:09</span>
+                                    <span class="end-time">3:54</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-options hidden">
+                    <div class="options">
+                        <div class="dots"></div>
+                        <div class="dots"></div>
+                        <div class="dots"></div>
+                    </div>
+                </div>
 			</div>
 		</div>
+        </div>
 	</foreignObject>
 </svg>
