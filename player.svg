@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 800 400" width="800" height="400">
+	<foreignObject width="100%" height="200px">
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<style>
+                .container{
+                    margin-left: 20px;
+                    display:flex;
+                    justify-content:center;
+                    width: 100%;
+                    background:#2572ff;
+                }
+			</style>
+			<div class="container">
+				<img src="./images/player.png" />
+			</div>
+		</div>
+	</foreignObject>
+</svg>
